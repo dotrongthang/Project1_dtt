@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="20dp"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvTitleChange"
+        android:text="Cập nhật thông tin tài xế"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/edtChangeNameDr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="16dp"
+        android:hint="Nhập tên"
+        android:inputType="textFilter" />
+
+    <EditText
+        android:id="@+id/edtChangePhoneDr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:hint="Nhập SĐT"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/edtChangePwDr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:hint="Nhập mật khẩu"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/edtChangeMoney"
+        android:visibility="gone"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="20dp"
+        android:hint="Nhập số tiền"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvNote"
+        android:visibility="gone"
+        android:textColor="#CD281B"
+        android:gravity="center"
+        android:layout_marginTop="8dp"
+        android:text="Chú ý: Sau khi cập nhật thông tin sẽ yêu cầu đăng nhập lại."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:layout_marginBottom="30dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnChangeDr"
+            android:padding="1dp"
+            android:background="@drawable/custom_button"
+            android:text="Xác nhận"
+            android:layout_width="120dp"
+            android:layout_height="48dp"/>
+
+        <Button
+            android:id="@+id/btnNoChangeDr"
+            android:layout_marginLeft="20dp"
+            android:padding="1dp"
+            android:background="@drawable/custom_button"
+            android:text="Hủy"
+            android:layout_width="120dp"
+            android:layout_height="48dp"/>
+    </LinearLayout>
+
+</LinearLayout>
