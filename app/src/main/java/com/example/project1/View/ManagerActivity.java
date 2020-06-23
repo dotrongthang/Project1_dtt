@@ -7,7 +7,9 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -233,6 +235,42 @@ public class ManagerActivity extends AppCompatActivity implements AddDriverToPac
         dialog.show();
     }
 
+    @Override
+    public void DeleteSender(final Sender sender) {
+        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setMessage("Bạn có chắc chắn xóa người gửi " +sender.getHoTen() + " không?");
+        alertDialog.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                DeleteSender(sender.getID());
+                AppUtil.startActivity(ManagerActivity.this, ManagerActivity.class, KEY_SENDER);
+            }
+        });
+        alertDialog.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        alertDialog.show();
+
+    }
+
+    public void DeleteSender(String id){
+        DataClient DeleteS = APIUtils.getData();
+        Call<String> call = DeleteS.DeleteSender(id);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+
+            }
+        });
+    }
+
     private void EditSender(String id, String ten, String sdt, String matkhau, String tiengui){
         DataClient editNG = APIUtils.getData();
         Call<String> callback = editNG.EditSender(id, ten, sdt, matkhau, tiengui);
@@ -287,6 +325,41 @@ public class ManagerActivity extends AppCompatActivity implements AddDriverToPac
             }
         });
         dialog.show();
+    }
+
+    @Override
+    public void DeleteDriver(final Driver driver) {
+        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setMessage("Bạn có chắc chắn xóa người gửi " + driver.getHoTen() + " không?");
+        alertDialog.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                DeleteDriverDB(driver.getID());
+                AppUtil.startActivity(ManagerActivity.this, ManagerActivity.class, KEY_DRIVER);
+            }
+        });
+        alertDialog.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        alertDialog.show();
+    }
+
+    public void DeleteDriverDB(String id){
+        DataClient DeleteS = APIUtils.getData();
+        Call<String> call = DeleteS.DeleteDriver(id);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+
+            }
+        });
     }
 
     private void EditDriver(String id, String ten, String sdt, String matkhau, String doanhthu){

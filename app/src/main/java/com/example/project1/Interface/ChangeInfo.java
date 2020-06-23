@@ -6,4 +6,6 @@ public interface ChangeInfo {
     void changeInfo();
 
     void changeInfoSender(Sender sender);
+
+    void DeleteSender(Sender sender);
 }

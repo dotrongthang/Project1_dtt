@@ -48,6 +48,12 @@ public class ListShopAdapter extends RecyclerView.Adapter<ListShopAdapter.ViewHo
                 changeInfo.changeInfoSender(senders.get(position));
             }
         });
+        holder.imgDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeInfo.DeleteSender(senders.get(position));
+            }
+        });
     }
 
     @Override
@@ -60,7 +66,7 @@ public class ListShopAdapter extends RecyclerView.Adapter<ListShopAdapter.ViewHo
         private TextView tvListPhone;
         private TextView tvListPw;
         private TextView tvListMoney;
-        ImageView imgEdit;
+        ImageView imgEdit, imgDelete;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -69,6 +75,7 @@ public class ListShopAdapter extends RecyclerView.Adapter<ListShopAdapter.ViewHo
             tvListPw = (TextView) itemView.findViewById(R.id.tvListPw);
             tvListMoney = (TextView) itemView.findViewById(R.id.tvListMoney);
             imgEdit = (ImageView) itemView.findViewById(R.id.ListEdit);
+            imgDelete = (ImageView) itemView.findViewById(R.id.ListDelete);
         }
     }
 }

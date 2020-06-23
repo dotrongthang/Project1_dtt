@@ -275,6 +275,11 @@ public class DriverActivity extends AppCompatActivity implements ChangeState, Ch
 
     }
 
+    @Override
+    public void DeleteSender(Sender sender) {
+
+    }
+
     private void UpdateDriver(String id, String ten, String sdt, String matkhau, String doanhthu){
         DataClient editTX = APIUtils.getData();
         Call<String> callback = editTX.EditTX(id, ten, sdt, matkhau, doanhthu);

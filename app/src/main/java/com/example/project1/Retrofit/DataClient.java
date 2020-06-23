@@ -80,7 +80,7 @@ public interface DataClient {
 
     @FormUrlEncoded
     @POST("deleteDriver.php")
-    Call<String> DeleteTaiXe(@Field("idTX") String id);
+    Call<String> DeleteDriver(@Field("idTX") String id);
 
     @FormUrlEncoded
     @POST("deletePackage.php")
@@ -88,7 +88,7 @@ public interface DataClient {
 
     @FormUrlEncoded
     @POST("deleteSender.php")
-    Call<String> DeleteNguoiGui(@Field("idNG") String id);
+    Call<String> DeleteSender(@Field("idNG") String id);
 
     @FormUrlEncoded
     @POST("updatePackage.php")

@@ -33,8 +33,17 @@
         <ImageView
             android:id="@+id/ListEdit"
             android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
+            android:layout_toLeftOf="@+id/ListDelete"
+            android:layout_marginRight="8dp"
             android:src="@drawable/edit_info"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+
+        <ImageView
+            android:id="@+id/ListDelete"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/icon_delete"
             android:layout_width="30dp"
             android:layout_height="30dp"/>
     </RelativeLayout>

@@ -50,6 +50,12 @@ public class ListDriverAdapter extends RecyclerView.Adapter<ListDriverAdapter.Vi
                 changeInfo.changeInfoDriver(drivers.get(position));
             }
         });
+        holder.imgDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeInfo.DeleteDriver(drivers.get(position));
+            }
+        });
     }
 
     @Override
@@ -62,7 +68,7 @@ public class ListDriverAdapter extends RecyclerView.Adapter<ListDriverAdapter.Vi
         private TextView tvListPhone;
         private TextView tvListPw;
         private TextView tvListMoney;
-        ImageView imgList, imgEdit;
+        ImageView imgList, imgEdit, imgDelete;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -72,6 +78,7 @@ public class ListDriverAdapter extends RecyclerView.Adapter<ListDriverAdapter.Vi
             tvListMoney = (TextView) itemView.findViewById(R.id.tvListMoney);
             imgEdit = (ImageView) itemView.findViewById(R.id.ListEdit);
             imgList = (ImageView) itemView.findViewById(R.id.imgList);
+            imgDelete = (ImageView) itemView.findViewById(R.id.ListDelete);
         }
     }
 }
