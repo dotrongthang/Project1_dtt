@@ -9,7 +9,7 @@ import java.util.Enumeration;
 
 public class APIUtils {
 
-    public static final String Base_Url = "http://192.168.1.14/project1/";
+    public static final String Base_Url = "http://192.168.0.103/project1/";
 
     public static DataClient getData(){
         return RetrofitClient.getClient(Base_Url).create(DataClient.class);

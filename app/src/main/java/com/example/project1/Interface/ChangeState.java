@@ -8,4 +8,6 @@ public interface ChangeState {
     void EditPackage(Package pack);
 
     void Call(String phone);
+
+    void DeletePackage(Package pack, int index);
 }

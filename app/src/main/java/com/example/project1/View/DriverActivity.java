@@ -221,6 +221,11 @@ public class DriverActivity extends AppCompatActivity implements ChangeState, Ch
         onClickCallShop(phone);
     }
 
+    @Override
+    public void DeletePackage(Package pack, int index) {
+
+    }
+
     public void onClickBackDr(View view){
         finish();
     }

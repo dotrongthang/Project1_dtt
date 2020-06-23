@@ -84,7 +84,7 @@ public interface DataClient {
 
     @FormUrlEncoded
     @POST("deletePackage.php")
-    Call<String> DeleteBuuKien(@Field("idBK") String id);
+    Call<String> DeletePackage(@Field("idBK") String id);
 
     @FormUrlEncoded
     @POST("deleteSender.php")

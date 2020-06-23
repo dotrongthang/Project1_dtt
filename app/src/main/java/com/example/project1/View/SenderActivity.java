@@ -195,6 +195,50 @@ public class SenderActivity extends AppCompatActivity implements ChangeState, Ch
 
     }
 
+    @Override
+    public void DeletePackage(final Package pack, final int index) {
+        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setMessage("Bạn có chắc chắn xóa bưu kiện " + pack.getTenBK() + " không?");
+        alertDialog.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                DeletePackage(pack.getID());
+                if (index == 0){
+                    AppUtil.startActivity(SenderActivity.this, SenderActivity.class, "SDTNG", phoneSender);
+                }else {
+                    fragment = new SendedFragment();
+                    fragment.setArguments(bundle);
+                    lnMoney.setVisibility(View.VISIBLE);
+                    imgAddPk.setVisibility(View.INVISIBLE);
+                    loadFragment(fragment);
+                }
+
+            }
+        });
+        alertDialog.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        alertDialog.show();
+    }
+
+    private void DeletePackage(String id){
+        DataClient delete = APIUtils.getData();
+        Call<String> call = delete.DeletePackage(id);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+
+            }
+        });
+    }
+
     private void editPackage(String id, String name, String receiver, String to){
         DataClient editPack = APIUtils.getData();
         Call<String> call = editPack.EditPackage(id, name, receiver, to);

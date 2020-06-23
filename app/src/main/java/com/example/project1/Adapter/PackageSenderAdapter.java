@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -51,6 +52,16 @@ public class PackageSenderAdapter extends RecyclerView.Adapter<PackageSenderAdap
                 changeState.EditPackage(packages.get(position));
             }
         });
+        holder.imgDeleteS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (packages.get(position).getTinhTrang().compareTo("chưa gửi") == 0){
+                    changeState.DeletePackage(packages.get(position), 0);
+                }else {
+                    changeState.DeletePackage(packages.get(position), 1);
+                }
+            }
+        });
 
     }
 
@@ -65,6 +76,8 @@ public class PackageSenderAdapter extends RecyclerView.Adapter<PackageSenderAdap
         private TextView tvTo;
         private TextView tvDriver;
         private LinearLayout lnEdit;
+        private ImageView imgDeleteS;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -73,6 +86,7 @@ public class PackageSenderAdapter extends RecyclerView.Adapter<PackageSenderAdap
             tvTo = (TextView) itemView.findViewById(R.id.tvTo);
             tvDriver = (TextView) itemView.findViewById(R.id.tvDriver);
             lnEdit = (LinearLayout) itemView.findViewById(R.id.lnEdit);
+            imgDeleteS = (ImageView) itemView.findViewById(R.id.imgDeleteS);
         }
     }
 }

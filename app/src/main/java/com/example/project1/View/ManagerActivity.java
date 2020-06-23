@@ -330,7 +330,7 @@ public class ManagerActivity extends AppCompatActivity implements AddDriverToPac
     @Override
     public void DeleteDriver(final Driver driver) {
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        alertDialog.setMessage("Bạn có chắc chắn xóa người gửi " + driver.getHoTen() + " không?");
+        alertDialog.setMessage("Bạn có chắc chắn xóa tài xế " + driver.getHoTen() + " không?");
         alertDialog.setPositiveButton("Có", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
